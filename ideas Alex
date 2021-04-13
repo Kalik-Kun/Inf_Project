@@ -1,0 +1,174 @@
+for exampe out of lexer
+in
+
+
+
+            x = 2
+            //This is a comment.
+            var x\n
+            var y\n
+            var f = function(x, y) 
+              { sin(x) * sin(y) + x * y; }
+              
+              
+            der(f, x)
+            var g = function(x, y) 
+              { 2 * (x + der(f, y)); } // der(f, y) is a  matrix
+            var r{3}; // Vector of three elements
+            
+            var J{12, 12}; // Matrix of 12x12 elements
+            var dot = function(u{:}, v{:}) -> scalar {
+                      return u[i] * v[i]; // Einstein notation
+            }
+            var norm = function(u{:}) -> scalar { return sqrt(dot(u, u)); }
+            <end>
+            
+            
+            
+            
+            out
+            
+            
+            
+            
+              Identifier |x|
+       Equal |=|
+      Number |2|
+     Comment | This is a comment.|
+  Identifier |var|
+  Identifier |x|
+  Identifier |var|
+  Identifier |y|
+  Identifier |var|
+  Identifier |f|
+       Equal |=|
+  Identifier |function|
+   LeftParen |(|
+  Identifier |x|
+       Comma |,|
+  Identifier |y|
+  RightParen |)|
+   LeftCurly |{|
+  Identifier |sin|
+   LeftParen |(|
+  Identifier |x|
+  RightParen |)|
+    Asterisk |*|
+  Identifier |sin|
+   LeftParen |(|
+  Identifier |y|
+  RightParen |)|
+        Plus |+|
+  Identifier |x|
+    Asterisk |*|
+  Identifier |y|
+   Semicolon |;|
+  RightCurly |}|
+  Identifier |der|
+   LeftParen |(|
+  Identifier |f|
+       Comma |,|
+  Identifier |x|
+  RightParen |)|
+  Identifier |var|
+  Identifier |g|
+       Equal |=|
+  Identifier |function|
+   LeftParen |(|
+  Identifier |x|
+       Comma |,|
+  Identifier |y|
+  RightParen |)|
+   LeftCurly |{|
+      Number |2|
+    Asterisk |*|
+   LeftParen |(|
+  Identifier |x|
+        Plus |+|
+  Identifier |der|
+   LeftParen |(|
+  Identifier |f|
+       Comma |,|
+  Identifier |y|
+  RightParen |)|
+  RightParen |)|
+   Semicolon |;|
+  RightCurly |}|
+     Comment | der(f, y) is a matrix|
+  Identifier |var|
+  Identifier |r|
+   LeftCurly |{|
+      Number |3|
+  RightCurly |}|
+   Semicolon |;|
+     Comment | Vector of three elements|
+  Identifier |var|
+  Identifier |J|
+   LeftCurly |{|
+      Number |12|
+       Comma |,|
+      Number |12|
+  RightCurly |}|
+   Semicolon |;|
+     Comment | Matrix of 12x12 elements|
+  Identifier |var|
+  Identifier |dot|
+       Equal |=|
+  Identifier |function|
+   LeftParen |(|
+  Identifier |u|
+   LeftCurly |{|
+       Colon |:|
+  RightCurly |}|
+       Comma |,|
+  Identifier |v|
+   LeftCurly |{|
+       Colon |:|
+  RightCurly |}|
+  RightParen |)|
+       Minus |-|
+ GreaterThan |>|
+  Identifier |scalar|
+   LeftCurly |{|
+  Identifier |return|
+  Identifier |u|
+  LeftSquare |[|
+  Identifier |i|
+ RightSquare |]|
+    Asterisk |*|
+  Identifier |v|
+  LeftSquare |[|
+  Identifier |i|
+ RightSquare |]|
+   Semicolon |;|
+     Comment | Einstein notation|
+  RightCurly |}|
+  Identifier |var|
+  Identifier |norm|
+       Equal |=|
+  Identifier |function|
+   LeftParen |(|
+  Identifier |u|
+   LeftCurly |{|
+       Colon |:|
+  RightCurly |}|
+  RightParen |)|
+       Minus |-|
+ GreaterThan |>|
+  Identifier |scalar|
+   LeftCurly |{|
+  Identifier |return|
+  Identifier |sqrt|
+   LeftParen |(|
+  Identifier |dot|
+   LeftParen |(|
+  Identifier |u|
+       Comma |,|
+  Identifier |u|
+  RightParen |)|
+  RightParen |)|
+   Semicolon |;|
+  RightCurly |}|
+    LessThan |<|
+  Identifier |end|
+ GreaterThan |>|
