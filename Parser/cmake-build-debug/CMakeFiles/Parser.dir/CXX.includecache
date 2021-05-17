@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Xiaomi/CLionProjects/Parser/Headers/AbstractSyntaxTree.h
+debug.h
+C:/Users/Xiaomi/CLionProjects/Parser/Headers/debug.h
+fstream
+-
+iostream
+-
+cstring
+-
+map
+-
+
+C:/Users/Xiaomi/CLionProjects/Parser/Headers/debug.h
+fstream
+-
+
+C:/Users/Xiaomi/CLionProjects/Parser/Source/AbstractSyntaxTree.cpp
+../Headers/AbstractSyntaxTree.h
+C:/Users/Xiaomi/CLionProjects/Parser/Headers/AbstractSyntaxTree.h
+

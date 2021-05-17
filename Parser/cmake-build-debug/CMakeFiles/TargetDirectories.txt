@@ -1,0 +1,3 @@
+C:/Users/Xiaomi/CLionProjects/Parser/cmake-build-debug/CMakeFiles/Parser.dir
+C:/Users/Xiaomi/CLionProjects/Parser/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Xiaomi/CLionProjects/Parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir

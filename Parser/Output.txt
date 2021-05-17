@@ -1,0 +1,22 @@
+digraph G{
+graph [label="Hui", labelloc=top, fontsize=30]root [shape = box, style = filled, fillcolor = orange, color = black, label = " Root = 0x7371e0"]
+count [shape = box, style = filled, fillcolor = orange, color = black, label = " Count of nodes = 9"]
+7565792 [shape = record, style = filled, fillcolor = green, color = black, label = " {START}"]
+root -> 7565792
+ [color = black]7588960 [shape = record, style = filled, fillcolor = lightgray, color = black, label = " {line  | LINE}"]
+7565792 -> 7588960 [color = black]
+7537944 [shape = record, style = filled, fillcolor = white, color = black, label = " {ASSIGNMENT | =}"]
+7588960 -> 7537944 [color = black]
+7537872 [shape = record, style = filled, fillcolor = green, color = black, label = " {Identifier | x}"]
+7537944 -> 7537872 [color = black]
+7586760 [shape = record, style = filled, fillcolor = pink, color = black, label = " {Plus | +}"]
+7537944 -> 7586760 [color = black]
+7584560 [shape = record, style = filled, fillcolor = pink, color = black, label = " {MULTIPLICATION | *}"]
+7586760 -> 7584560 [color = black]
+7538016 [shape = record, style = filled, fillcolor = green, color = black, label = " {Identifier | y}"]
+7584560 -> 7538016 [color = black]
+7586688 [shape = record, style = filled, fillcolor = white, color = black, label = " {Number | 5}"]
+7584560 -> 7586688 [color = black]
+7588888 [shape = record, style = filled, fillcolor = white, color = black, label = " {Number | 7}"]
+7586760 -> 7588888 [color = black]
+}
