@@ -6,6 +6,8 @@
 #include <iostream>
 #include <cstring>
 #include <map>
+#include "Lexer.h"
+
 class AbstractSyntaxTree
 {
 public:
@@ -25,7 +27,7 @@ public:
 
     public:
 
-        int   type      =  Unexpected; //Что это вообще такое
+        int   type      =  UNEXPECTED; //Что это вообще такое
         int   ivalue    =  0;          // Если переменная или число то ее тзначении int
         float fvalue    =  0;          // Если переменная или число ее значение float
         char* svalue    =  nullptr;    // Названия функции или коментария будет разбирать интопретатор
@@ -38,45 +40,6 @@ public:
             CHAR_TYPE,
         };
 
-        enum  TypeLexem{
-            Number,                 // число
-            Identifier,             // переменная
-            LeftParen,              // левая скобка (
-            RightParen,             // правая скобка )
-            LeftSquare,             // {
-            RightSquare,            // }
-            LeftCurly,              // [
-            RightCurly,             // ]
-            LessThan,               // <
-            GreaterThan,            // >
-            Equal,                  // ==
-            Plus,                   // +
-            Minus,                  // -
-            Asterisk,
-            Slash,
-            Hash,
-            Dot,
-            Comma,                  // ,
-            Colon,                  // :
-            Semicolon,              // ;
-            SingleQuote,
-            DoubleQuote,
-            Comment,                // coment
-            Pipe,
-            End,                    // конец программы
-//          мое если что
-            POW,                    // возведение в степень
-            MULTIPLICATION,         // умножение
-            DIVISION,               // деление
-            NotEqual,               // !=
-            ASSIGNMENT,             // присвоить
-            Line,                   // конец строки
-            START,                  // начало програмы
-            Paren,                  // Скобки законченые ()
-            Curly,                  // {}
-            Square,                 // []
-            Unexpected,             // неизвестно
-        };
 
         Node* parent = nullptr;
         Node* left   = nullptr;
@@ -108,68 +71,69 @@ public:
         void print          ();
 
         std::map<int, char*> Lexem_map {
-                {Number         , "Number"        },
-                {Identifier     , "Identifier"    },
-                {LeftParen      , "LeftParen"     },
-                {RightParen     , "RightParen"    },
-                {LeftSquare     , "LeftSquare"    },
-                {RightSquare    , "RightSquare"   },
-                {LeftCurly      , "LeftCurly"     },
-                {RightCurly     , "RightCurly"    },
-                {LessThan       , "LessThan"      },
-                {GreaterThan    , "GreaterThan"   },
-                {Equal          , "Equal"         },
-                {Plus           , "Plus"          },
-                {Minus          , "Minus"         },
-                {Asterisk       , "Asterisk"      },
-                {Slash          , "Slash"         },
-                {Hash           , "Hash"          },
-                {Dot            , "Dot"           },
-                {Comma          , "Comma"         },
-                {Colon          , "Colon"         },
-                {Semicolon      , "Semicolon"     },
-                {SingleQuote    , "SingleQuote"   },
-                {DoubleQuote    , "DoubleQuote"   },
-                {Comment        , "Comment"       },
-                {Pipe           , "Pipe"          },
-                {End            , "End"           },
+                {NUMBER         , "NUMBER"        },
+                {IDENTIFIER     , "IDENTIFIER"    },
+                {LEFTPAREN      , "LEFTPAREN"     },
+                {RIGHTPAREN     , "RIGHTPAREN"    },
+                {LEFTSQUARE     , "LEFTSQUARE"    },
+                {RIGHTSQURE     , "RIGHTSQURE"    },
+                {LEFTCURLY      , "LEFTCURLY"     },
+                {RIGHTCURLY     , "RIGHTCURLY"    },
+                {LEFTCOMMENT    , "LEFTCOMMENT"   },
+                {RIGHTCOMMENT   , "RIGHTCOMMENT"  },
+                {LESSTHAN       , "LESSTHAN"      },
+                {GRESTERTHAN    , "GRESTERTHAN"   },
+                {EQUAL          , "EQUAL"         },
+                {PLUS           , "PLUS"          },
+                {MINUS          , "MINUS"         },
+                {SLASH          , "SLASH"         },
+                {HASH           , "HASH"          },
+                {DOT            , "DOT"           },
+                {COMMA          , "COMMA"         },
+                {COLON          , "COLON"         },
+                {SEMICOLON      , "SEMICOLON"     },
+                {SINGLEQUATE    , "SINGLEQUATE"   },
+                {DOUBLEQUOTE    , "DOUBLEQUOTE"   },
+                {COMMENT        , "COMMEMT"       },
+                {PIPE           , "PIPE"          },
+                {END            , "END"           },
                 {POW            , "POW"           },
                 {MULTIPLICATION , "MULTIPLICATION"},
                 {DIVISION       , "DIVISION"      },
-                {NotEqual       , "NotEqual"      },
+                {NOTEQUAL       , "NOTEQUAL"      },
                 {ASSIGNMENT     , "ASSIGNMENT"    },
-                {Line           , "Line"          },
+                {LINE           , "LINE"          },
                 {START          , "START"         },
-                {Paren          , "Paren"         },
-                {Curly          , "Curly"         },
-                {Square         , "Square"        },
-                {Unexpected     , "Unexpected"}
+                {PAREN          , "PAREN"         },
+                {CURLY          , "CURLY"         },
+                {SQUARE         , "SQUARE"        },
+                {UNEXPECTED     , "UNEXPECTED"    },
 
 
         };
 
     private:
-        AbstractSyntaxTree* container = nullptr;
+        AbstractSyntaxTree* container = nullptr;                   // what does AST have this Node.
     };
 
     AbstractSyntaxTree ();
     ~AbstractSyntaxTree();
 
-    int dumper(const char* filename, int mode, const char* title);
+    int dumper(const char* filename, int mode, const char* title); // Do PND
 
     Node* createNode(int type, int   ivalue);
     Node* createNode(int type, float fvalue);
-    Node* createNode(int type, char* svalue);
+    Node* createNode(int type, char* svalue);                      //Create Node and tie to this AST
 
-    Node* head = nullptr;
+    Node* head = nullptr;                                          //root AST( From this start program)
 
 private:
-    unsigned long long int nodes_count = 0;
+    unsigned long long int nodes_count = 0;                        //Counts of Nodes belongs to Whis AST
 };
 
 
 typedef AbstractSyntaxTree AST;
-typedef AST::Node ASN;
+typedef AST::Node          ASN;
 
 
 bool isLetter (char  symbol);

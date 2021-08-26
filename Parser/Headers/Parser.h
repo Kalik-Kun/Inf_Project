@@ -1,14 +1,15 @@
-
 #include <iostream>
 #include "AbstractSyntaxTree.h"
 #include <iterator>
 
 
 
+
 class Parser {
 private:
-    std::pair<int, char*> *data;
-    int numb_elem = 0;
+    std::pair<int, char*> *data = nullptr;
+    long numb_elem = 0;
+    long data_size = 0;
 public:
 
     Parser(std::pair<int, char* >*  , long long size);
@@ -16,7 +17,11 @@ public:
 
     std::pair<int, char*> NextElem();
 
-    AST* ParBlock       (int type, char* string); // Разделяет на блоки
+    AST* GetAST         ();
+
+private:
+    // Line tio to right node, other tio to left node
+    ASN* ParBlock       (int type, char* string); // Разделяет на блоки
     ASN* ParLine        (int type, char* string); // Парсит Строку
     ASN* ParAssignment  (int type, char* string); // =
     ASN* ParLogic       (int type, char* string); // == , !=
@@ -32,7 +37,8 @@ public:
     ASN* ParParen       (int type, char* string); // ()
     ASN* ParCurly       (int type, char* string); // {}
     ASN* ParSquare      (int type, char* string); // []
+    ASN* ParComment     (int type, char* string); // /* */
+    ASN* ItsEnd         (int type, char* string); // for DEBAG
 
-    AST* GetAST        ();
 };
 

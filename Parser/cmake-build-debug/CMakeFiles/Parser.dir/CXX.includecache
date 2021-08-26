@@ -6,23 +6,23 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Xiaomi/CLionProjects/Parser/Headers/AbstractSyntaxTree.h
-debug.h
-C:/Users/Xiaomi/CLionProjects/Parser/Headers/debug.h
-fstream
+/home/arlik_null/Документы/GitHub/Inf_Project/Parser/Headers/Defines.h
+
+/home/arlik_null/Документы/GitHub/Inf_Project/Parser/Headers/Lexer.h
+string
 -
 iostream
 -
-cstring
+iterator
 -
-map
--
-
-C:/Users/Xiaomi/CLionProjects/Parser/Headers/debug.h
 fstream
 -
+cstring
+-
+Defines.h
+/home/arlik_null/Документы/GitHub/Inf_Project/Parser/Headers/Defines.h
 
-C:/Users/Xiaomi/CLionProjects/Parser/Source/AbstractSyntaxTree.cpp
-../Headers/AbstractSyntaxTree.h
-C:/Users/Xiaomi/CLionProjects/Parser/Headers/AbstractSyntaxTree.h
+/home/arlik_null/Документы/GitHub/Inf_Project/Parser/Source/Lexer.cpp
+../Headers/Lexer.h
+/home/arlik_null/Документы/GitHub/Inf_Project/Parser/Headers/Lexer.h
 

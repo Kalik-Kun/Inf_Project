@@ -1,0 +1,22 @@
+digraph G{
+graph [label="Hui", labelloc=top, fontsize=30]root [shape = box, style = filled, fillcolor = orange, color = black, label = " Root = 0x55efa186b030"]
+count [shape = box, style = filled, fillcolor = orange, color = black, label = " Count of nodes = 9"]
+94487695503408 [shape = record, style = filled, fillcolor = green, color = black, label = " {START}"]
+root -> 94487695503408
+ [color = black]94487695522864 [shape = record, style = filled, fillcolor = lightgray, color = black, label = " {line  | LINE}"]
+94487695503408 -> 94487695522864 [color = black]
+94487695508272 [shape = record, style = filled, fillcolor = white, color = black, label = " {ASSIGNMENT | =}"]
+94487695522864 -> 94487695508272 [color = black]
+94487695505840 [shape = record, style = filled, fillcolor = green, color = black, label = " {Identifier | x}"]
+94487695508272 -> 94487695505840 [color = black]
+94487695518000 [shape = record, style = filled, fillcolor = pink, color = black, label = " {Plus | +}"]
+94487695508272 -> 94487695518000 [color = black]
+94487695513136 [shape = record, style = filled, fillcolor = pink, color = black, label = " {MULTIPLICATION | *}"]
+94487695518000 -> 94487695513136 [color = black]
+94487695510704 [shape = record, style = filled, fillcolor = green, color = black, label = " {Identifier | y}"]
+94487695513136 -> 94487695510704 [color = black]
+94487695515568 [shape = record, style = filled, fillcolor = white, color = black, label = " {Number | 5}"]
+94487695513136 -> 94487695515568 [color = black]
+94487695520432 [shape = record, style = filled, fillcolor = white, color = black, label = " {Number | 7}"]
+94487695518000 -> 94487695520432 [color = black]
+}

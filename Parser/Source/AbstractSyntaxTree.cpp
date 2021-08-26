@@ -2,33 +2,35 @@
 #include "../Headers/AbstractSyntaxTree.h"
 
 ASN::Node(int type, int ivalue) {
-    if (type != Number) {
+    if (type != NUMBER) {
         std::cerr << "ERROR\nfile: AbstractSyntaxTree.cpp\n"
-                     " in func: ASN::Node(int, int)\n types is not equal\n";
+                     " in func: ASN::Node(int, int)\n types is not EQUAL\n";
         throw(1);
     }
 
     this->type = type;
     this->ivalue = ivalue;
     this->data_type = INT_TYPE;
+    this->container = nullptr;
 }
 
 ASN::Node(int type, float fvalue)
 {
-    if (type != Number) {
+    if (type != NUMBER) {
         std::cerr << "ERROR\nfile: AbstractSyntaxTree.cpp\n"
-                     " in func: ASN::Node(int, int)\n types is not equal\n";
+                     " in func: ASN::Node(int, float)\n types is not EQUAL\n";
         throw(1);
     }
     this->fvalue = fvalue;
     this->type = type;
     this->data_type = FLOAT_TYPE;
+    this->container = nullptr;
 }
 
 ASN::Node(int type, char* svalue) {
     this->type = type;
     this->svalue = svalue;
-
+    this->container = nullptr;
 //    if (isInteger(svalue))
 //    {
 //        this->ivalue = atoi(svalue);
@@ -63,7 +65,7 @@ ASN::~Node() {
 }
 
 void ASN::flush() {
-    this->type = Unexpected;
+    this->type = UNEXPECTED;
     this->fvalue = 0;
     this->ivalue = 0;
 
@@ -141,29 +143,29 @@ void ASN::fixContainer()
 
 const char* ASN::colorize()
 {
-    if (this -> type == START or this -> type == Identifier)
+    if (this -> type == START or this -> type == IDENTIFIER)
         return "green";
 
-    else if (this -> type == Line)
+    else if (this -> type == LINE)
         return "lightgray";
 
-    else if (this -> type == Plus or this -> type == Minus or
+    else if (this -> type == PLUS or this -> type == MINUS or
              this -> type == MULTIPLICATION or this -> type == DIVISION or
              this -> type == POW)
         return "pink";
 
-    else if (this -> type == Equal or this -> type == NotEqual or
-             this -> type == LessThan or this -> type == GreaterThan)
+    else if (this -> type == EQUAL or this -> type == NOTEQUAL or
+             this -> type == LESSTHAN or this -> type == GRESTERTHAN)
         return "\"#F8AEFF\"";
 
 
-    else if (this -> type == Number and this -> data_type == INT_TYPE)
+    else if (this -> type == NUMBER and this -> data_type == INT_TYPE)
         return "\"#D083FF\"";
 
-    else if (this -> type == Number and this -> data_type == FLOAT_TYPE)
+    else if (this -> type == NUMBER and this -> data_type == FLOAT_TYPE)
         return "\"#FF89A9\"";
 
-    else if (this -> type == Identifier)
+    else if (this -> type == IDENTIFIER)
         return "\"#64ADFF\"";
 
 //    else if (this -> type == FUNCCALL)
@@ -176,7 +178,7 @@ const char* ASN::colorize()
 
 void ASN::print()
 {
-    if (this -> type == Unexpected)
+    if (this -> type == UNEXPECTED)
     {
         printf("unknown operator");
 
@@ -187,16 +189,16 @@ void ASN::print()
     else if (this -> type == START)
         printf("START");
 
-    else if (this -> type == Line)
+    else if (this -> type == LINE)
         printf("%s", this -> svalue);
 
 //    else if (this -> type == FUNC)
 //        printf("function %s", this -> svalue);
 
-    else if (this -> type == Identifier)
+    else if (this -> type == IDENTIFIER)
         printf("%s", this->svalue);
 
-    else if (this -> type == Number)
+    else if (this -> type == NUMBER)
         printf("%s", this -> svalue);
 
 }
@@ -205,7 +207,7 @@ void ASN::print()
 
 void ASN::write(std::ofstream& out)
 {
-    if (this -> type == Unexpected)
+    if (this -> type == UNEXPECTED)
     {
         out << "unknown";
 
@@ -216,9 +218,9 @@ void ASN::write(std::ofstream& out)
     else if (this -> type == START)
         out << "START";
 
-    else if (this -> type == Line)
+    else if (this -> type == LINE)
     {
-        out << "line ";
+        out << "LINE ";
         out << " | " << this -> svalue;
     }
 
@@ -244,7 +246,7 @@ int AST::dumper(const char* filename, int mode, const char* title)
             " label = \" Root = " << this -> head << "\"]\n";
     file << "count [shape = box, style = filled, fillcolor = orange,"
             " color = black, label = \" Count of nodes = " << this -> nodes_count << "\"]\n";
-    AbstractSyntaxTree::Node* element = this -> head;
+    ASN* element = this -> head;
 
     file << (long int) element << " [shape = record, style = filled, fillcolor = "
          << element -> colorize() << ", color = black, label = \" {";
@@ -401,7 +403,7 @@ ASN* AST::createNode(int type, int ivalue)
 {
     Node* new_node = new Node(type, ivalue);
 
-    if (new_node->type == ASN::Unexpected)
+    if (new_node->type == UNEXPECTED)
     {
         delete new_node;
         return nullptr;
@@ -419,7 +421,7 @@ ASN* AST::createNode(int type, float fvalue)
 {
     Node* new_node = new Node(type, fvalue);
 
-    if (new_node->type == ASN::Unexpected)
+    if (new_node->type == UNEXPECTED)
     {
         delete new_node;
         return nullptr;
@@ -437,7 +439,7 @@ ASN* AST::createNode(int type, char* svalue)
 {
     Node* new_node = new Node(type, svalue);
 
-    if (new_node->type == ASN::Unexpected)
+    if (new_node->type == UNEXPECTED)
     {
         delete new_node;
         return nullptr;
