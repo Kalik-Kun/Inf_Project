@@ -57,9 +57,9 @@ int main () {
 
     Lexer my_lex(fin);
     std::cout << my_lex << std::endl;
-//    Parser  My_parser(my_lex.get_data(), my_lex.get_size_data());
-//    AST* My_AST = My_parser.GetAST();
-//    My_AST->dumper(OUTAST, MODE, NAMEAST);
+    Parser  My_parser(my_lex.get_data(), my_lex.get_size_data());
+    AST* My_AST = My_parser.GetAST();
+    My_AST->dumper(OUTAST, MODE, NAMEAST);
 
     return 0;
 }

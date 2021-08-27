@@ -126,13 +126,15 @@ void Lexer::its_identifier(_ITER_SIMB* iter, std::string& str) {
 void Lexer::its_number(_ITER_SIMB *iter, std::string& str) {
     std::string new_iden;
     auto it = *iter;
-    bool pointer_dot = false;
-    for (; it != str.end() && !pointer_dot
-                           && (is_digit(*it) || *it == '.'); it++) {
+    int count_dot = 0;
+    for (; it != str.end() && (is_digit(*it) || *it == '.'); it++) {
 
-        if (*it == '.') pointer_dot = true;
+        if (*it == '.') count_dot++;
+        if (count_dot >= 2) {
+
+        }
+
         new_iden += *it;
-
     }
 
     char* new_iden_char = new char[new_iden.length() + 1];

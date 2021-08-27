@@ -4,11 +4,14 @@
 #include <fstream>
 #include <cstring>
 #include "Defines.h"
+#include "debug.h"
 
 // lexems type of AST
 enum  TypeLexem{
     NUMBER,                 // Number
     IDENTIFIER,             // variable or anther reserved world
+    FUNC,                   // smth func
+    ARRAY,                  // smth arrays
     LEFTPAREN,              // (
     RIGHTPAREN,             // )
     LEFTSQUARE,             // [

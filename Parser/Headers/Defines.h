@@ -12,3 +12,7 @@
 #define _ITER_SIMB  std::string::iterator        // Iterator
 #define _SEPARATOR_ '\n'                        // this is separator. It split file on lines
 
+// In Parser.h
+#define _TYPE_DATA_ this->data[this->numb_elem].first
+#define _CHAR_DATA_ this->data[this->numb_elem].second
+

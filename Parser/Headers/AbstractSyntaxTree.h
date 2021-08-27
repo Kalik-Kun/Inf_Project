@@ -1,10 +1,6 @@
 //
 // Created by Xiaomi on 11.05.2021.
 //
-#include "debug.h"
-#include <fstream>
-#include <iostream>
-#include <cstring>
 #include <map>
 #include "Lexer.h"
 
